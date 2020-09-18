@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, SafeAreaView, ScrollView } from 'react-native';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+import MainBackground from './MainBackground';
 
 class Education extends Component {
     constructor(props) {
@@ -9,9 +10,11 @@ class Education extends Component {
     }
     render() { 
         return (
-            <View>
-                <Text>Hello</Text>
-            </View>
+            <MainBackground {...this.props}>
+                <View>
+                    <Text>hi</Text>
+                </View>
+            </MainBackground>
         );
     }
 }

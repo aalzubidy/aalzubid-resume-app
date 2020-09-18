@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, SafeAreaView, ScrollView, TouchableOpacity, Button, Linking } from 'react-native';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+import MainBackground from './MainBackground';
 import BoldText from './BoldText';
-import landscapeLowres from './img/landscape-lowres.jpg';
 import me3 from './img/me3.png';
-import settings1 from './img/settings3.png';
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -25,45 +24,25 @@ class HomeScreen extends Component {
   }
 
     render () {
-      const { navigation } = this.props;
         return (
-          <SafeAreaView style={styles.main}>
-            <ScrollView>
-                <ImageBackground style={styles.bgImg} source={landscapeLowres}>
-                    <TouchableOpacity onPress={()=>navigation.toggleDrawer()}>
-                      <Image style={{width: 50, height: 50, marginTop: vh(9), marginLeft: vh(2)}} source={settings1} />
-                    </TouchableOpacity>
-                        <Image 
-                         style={styles.personalImg}
-                         source={me3}
-                        />
-                    <View style={styles.innerSection}>
-                        <Text style={styles.textGeneral}>
-                          Hi, my name is Ahmed! I'm a <BoldText>Software Engineer</BoldText> at <BoldText>Itential</BoldText>.
-                          I design and develop solutions to automate networks for large enterprises.
-                          I also have a <BoldText>PhD in Computer Science</BoldText> from the University of Alabama, and I'm passionate about solving <BoldText>Software Engineering, Empirical Software Engineering, and User Experience</BoldText> issues. I like travelling, music, sports, and pizza!
-                        </Text>
-                    </View>
-                    <TouchableOpacity style={styles.hireMeBtn} activeOpacity={0.6} onPress={this.handleHireMe} onPressOut={this.handleHireMe}>
-                      <Text style={styles.textGeneral, {alignSelf:"center", fontSize: 25}}><BoldText>{this.state.hireMePress ?  '👍' : 'Hire Me!'}</BoldText></Text>
-                    </TouchableOpacity>
-                </ImageBackground>
-            </ScrollView>
-          </SafeAreaView>
+          <MainBackground {...this.props}>
+            <Image style={styles.personalImg} source={me3} />
+            <View style={styles.innerSection}>
+              <Text style={styles.textGeneral}>
+                Hi, my name is Ahmed! I'm a <BoldText>Software Engineer</BoldText> at <BoldText>Itential</BoldText>.
+                I design and develop solutions to automate networks for large enterprises.
+                I also have a <BoldText>PhD in Computer Science</BoldText> from the University of Alabama, and I'm passionate about solving <BoldText>Software Engineering, Empirical Software Engineering, and User Experience</BoldText> issues. I like travelling, music, sports, and pizza!
+              </Text>
+            </View>
+              <TouchableOpacity style={styles.hireMeBtn} activeOpacity={0.6} onPress={this.handleHireMe} onPressOut={this.handleHireMe}>
+                <Text style={styles.textGeneral, {alignSelf:"center", fontSize: 25}}><BoldText>{this.state.hireMePress ?  '👍' : 'Hire Me!'}</BoldText></Text>
+              </TouchableOpacity>
+          </MainBackground>
         )
     }
 }
 
 const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    // flexDirection: "column"
-  },
-  bgImg: {
-    flex: 1,
-    resizeMode: "cover",
-    // justifyContent: "center"
-  },
   innerSection: {
     backgroundColor: 'rgba(248, 231, 223, 0.96)',
     //  shadowOffset: { width: 10, height: 10 },
