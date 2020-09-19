@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 import ExperienceCard from './ExperienceCard';
 import InnerSection from './InnerSection';

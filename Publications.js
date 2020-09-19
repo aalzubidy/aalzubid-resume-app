@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, SafeAreaView, ScrollView, FlatList, Button, TouchableOpacity, Linking } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Linking } from 'react-native';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
-import ExperienceCard from './ExperienceCard';
 import InnerSection from './InnerSection';
 import MainBackground from './MainBackground';
+import BoldText from './BoldText'
 
 class Publications extends Component {
     static defaultProps = {
@@ -79,8 +79,8 @@ class Publications extends Component {
                 <View style={styles.container}>
                     <Text style={styles.publicationTitle}>"{item.title}"</Text>
                     <Text style={styles.publicationVenueDate}>{item.venue}, {item.year}</Text>
-                    <TouchableOpacity style={styles.readMoreBtn} activeOpacity={0.6} onPress={()=> Linking.openURL(item.url)}>
-                        <Text>Read More</Text>
+                    <TouchableOpacity style={styles.readMoreBtn} activeOpacity={0.6} onPress={() => Linking.openURL(item.url)}>
+                        <Text style={styles.readMoreText}><BoldText>Read More</BoldText></Text>
                     </TouchableOpacity>
                 </View>
             </InnerSection>
@@ -111,11 +111,13 @@ const styles = StyleSheet.create({
     publicationTitle: {
         alignItems: 'center',
         margin: vh(2),
-        textAlign: 'justify'
+        textAlign: 'justify',
+        fontSize: 18
     },
     publicationVenueDate: {
         alignItems: 'center',
-        marginLeft: vh(2)
+        marginLeft: vh(2),
+        fontSize: 14
     },
     readMoreBtn: {
         backgroundColor: 'rgba(103, 195, 253, 0.9)',
@@ -126,5 +128,8 @@ const styles = StyleSheet.create({
         width: vw(40),
         height: 30,
         alignItems: "center"
+    },
+    readMoreText: {
+        fontSize: 18
     }
 });

@@ -15,6 +15,7 @@ import educationImg from './img/education.png';
 import experienceImg from './img/projects.png';
 import publicationsImg from './img/publication.png';
 import socialImg from './img/socialMediaCircle.png';
+import { vh } from 'react-native-expo-viewport-units';
 
 // const Stack = createStackNavigator();
 
@@ -33,6 +34,10 @@ const MyStack = () => {
           activeTintColor: 'black',
           activeBackgroundColor: '#fbdbc6',
           inactiveTintColor: 'black',
+          labelStyle: {
+            fontSize: 16,
+            fontWeight: 'bold'
+          }
         }}>
         <Drawer.Screen
           name="Home"
@@ -101,8 +106,9 @@ const styles = StyleSheet.create({
   drawer: {
     backgroundColor: '#f7ae80',
     flex: 1,
-    padding: 1
-    // width: 240
+    padding: 20,
+    height: 400,
+    marginTop: 40
   },
   screen: {
     backgroundColor: '#f7ae80',
@@ -110,6 +116,5 @@ const styles = StyleSheet.create({
   },
   screenTitle: {
     alignSelf: 'center'
-    // fontSize: 28
   }
 });

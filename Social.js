@@ -9,14 +9,20 @@ import linkedinImg from './img/socialMediaIcons/linkedin.png';
 import researchgateImg from './img/socialMediaIcons/researchgate.jpeg';
 import skypeImg from './img/socialMediaIcons/skype.png';
 import twitterImg from './img/socialMediaIcons/twitter2.png';
+import websiteImg from './img/socialMediaIcons/website.png';
 
 class Social extends Component {
     static defaultProps = {
         socialMediaInfo: [
             {
+                'id': 'website',
+                'img': websiteImg,
+                'url': 'http://aalzubidy.com/'
+            },
+            {
                 'id': 'gmail',
                 'img': gmailImg,
-                'url': 'to:aalzubidy@crimson.ua.edu'
+                'url': 'mailto:aalzubidy@crimson.ua.edu?subject=Let\'s Connect'
             },
             {
                 'id': 'linkedin',

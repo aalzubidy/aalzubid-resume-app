@@ -26,5 +26,5 @@ const styles = StyleSheet.create({
         marginBottom: vh(2),
         width: vw(96),
         alignSelf: "center",
-      }
+    }
 });

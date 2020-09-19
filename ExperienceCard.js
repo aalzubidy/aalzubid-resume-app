@@ -16,11 +16,11 @@ class ExperienceCard extends Component {
             <View style={styles.main}>
                 <View style={styles.logoContainer}>
                     <Image source={logo} style={styles.logoImg} />
-                    <BoldText>{position}</BoldText>
-                    <Text>{company}</Text>
+                    <Text style={styles.textFont}><BoldText>{position}</BoldText></Text>
+                    <Text style={styles.textFont}>{company}</Text>
                 </View>
                 <View style={styles.descContainer}>
-                    <Text><BoldText>{from}</BoldText> - <BoldText>{to}</BoldText></Text>
+                    <Text style={styles.textFont}><BoldText>{from}</BoldText> - <BoldText>{to}</BoldText></Text>
                 </View>
             </View>
         );
@@ -50,5 +50,8 @@ const styles = StyleSheet.create({
         height: 60,
         margin: 8,
         borderRadius: 8
+    },
+    textFont: {
+        fontSize: 18
     }
 });

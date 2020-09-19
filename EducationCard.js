@@ -12,19 +12,17 @@ class EducationCard extends Component {
     render() {
         const { logo, date, degree, university, description, gpa } = this.props.educationItem;
 
-        console.log(this.props.educationItem);
-
         return (
             <View style={styles.main}>
                 <View style={styles.logoContainer}>
                     <Image source={logo} style={styles.logoImg} />
-                    <BoldText>{date}</BoldText>
+                    <Text style={styles.textFont}><BoldText>{date}</BoldText></Text>
                 </View>
                 <View style={styles.descContainer}>
-                    <BoldText>{degree}</BoldText>
-                    <Text>{university}</Text>
+                    <Text style={styles.textFont}><BoldText>{degree}</BoldText></Text>
+                    <Text style={styles.textFont}>{university}</Text>
                     <Text style={styles.universityDesc}>{description}</Text>
-                    <Text>GPA: {gpa}</Text>
+                    <Text style={styles.textFont}>GPA: {gpa}</Text>
                 </View>
             </View>
         );
@@ -57,6 +55,11 @@ const styles = StyleSheet.create({
     },
     universityDesc: {
         textAlign: 'justify',
-        marginTop: vh(2)
+        marginTop: vh(2),
+        fontSize: 18,
+        marginBottom: 8
+    },
+    textFont: {
+        fontSize: 18
     }
 });

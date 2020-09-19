@@ -14,16 +14,16 @@ class MainBackground extends Component {
     const { navigation } = this.props;
 
     return (
-        <SafeAreaView style={styles.main}>
-            <View style={styles.main}>
-                <ImageBackground style={styles.bgImg} source={landscapeLowres}>
-                    <TouchableOpacity onPress={()=>navigation.toggleDrawer()}>
-                      <Image style={{width: 50, height: 50, marginTop: vh(9), marginLeft: vh(2)}} source={settings1} />
-                    </TouchableOpacity>
-                    {this.props.scrollViewOn ? <ScrollView>{this.props.children}</ScrollView> : this.props.children}
-                </ImageBackground>
-            </View>
-        </SafeAreaView>
+      <SafeAreaView style={styles.main}>
+        <View style={styles.main}>
+          <ImageBackground style={styles.bgImg} source={landscapeLowres}>
+            <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+              <Image style={{ width: 50, height: 50, marginTop: vh(9), marginLeft: vh(2) }} source={settings1} />
+            </TouchableOpacity>
+            {this.props.scrollViewOn ? <ScrollView>{this.props.children}</ScrollView> : this.props.children}
+          </ImageBackground>
+        </View>
+      </SafeAreaView>
     );
   }
 }
