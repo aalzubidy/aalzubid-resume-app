@@ -4,6 +4,7 @@ import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 import MainBackground from './MainBackground';
 import BoldText from './BoldText';
 import me3 from './img/me3.png';
+import InnerSection from './InnerSection';
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -14,52 +15,41 @@ class HomeScreen extends Component {
   }
 
   handleHireMe = () => {
-      if (this.state.hireMePress === false) {
-      this.setState({hireMePress: !this.state.hireMePress}, ()=>{
+    if (this.state.hireMePress === false) {
+      this.setState({ hireMePress: !this.state.hireMePress }, () => {
         Linking.openURL('mailto:aalzubidy@crimson.ua.edu?subject=Hire Me')
       });
     } else {
-      this.setState({hireMePress: !this.state.hireMePress});
+      this.setState({ hireMePress: !this.state.hireMePress });
     }
   }
 
-    render () {
-        return (
-          <MainBackground {...this.props}>
-            <Image style={styles.personalImg} source={me3} />
-            <View style={styles.innerSection}>
-              <Text style={styles.textGeneral}>
-                Hi, my name is Ahmed! I'm a <BoldText>Software Engineer</BoldText> at <BoldText>Itential</BoldText>.
+  render() {
+    return (
+      <MainBackground scrollViewOn {...this.props}>
+        <Image style={styles.personalImg} source={me3} />
+        <InnerSection>
+          <Text style={styles.textGeneral}>
+            Hi, my name is Ahmed! I'm a <BoldText>Software Engineer</BoldText> at <BoldText>Itential</BoldText>.
                 I design and develop solutions to automate networks for large enterprises.
                 I also have a <BoldText>PhD in Computer Science</BoldText> from the University of Alabama, and I'm passionate about solving <BoldText>Software Engineering, Empirical Software Engineering, and User Experience</BoldText> issues. I like travelling, music, sports, and pizza!
               </Text>
-            </View>
-              <TouchableOpacity style={styles.hireMeBtn} activeOpacity={0.6} onPress={this.handleHireMe} onPressOut={this.handleHireMe}>
-                <Text style={styles.textGeneral, {alignSelf:"center", fontSize: 25}}><BoldText>{this.state.hireMePress ?  '👍' : 'Hire Me!'}</BoldText></Text>
-              </TouchableOpacity>
-          </MainBackground>
-        )
-    }
+        </InnerSection>
+        <TouchableOpacity style={styles.hireMeBtn} activeOpacity={0.6} onPress={this.handleHireMe} onPressOut={this.handleHireMe}>
+          <Text style={styles.textGeneral, { alignSelf: "center", fontSize: 25 }}><BoldText>{this.state.hireMePress ? '👍' : 'Hire Me!'}</BoldText></Text>
+        </TouchableOpacity>
+      </MainBackground>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-  innerSection: {
-    backgroundColor: 'rgba(248, 231, 223, 0.96)',
-    //  shadowOffset: { width: 10, height: 10 },
-    //  shadowColor: 'black',
-    //  shadowOpacity: 1,
-    elevation: 2,
-    //  alignSelf: 'center',
-    marginTop: vh(2),
-    marginBottom: vh(2),
-    width: vw(96),
-    alignSelf: "center",
-  },
   personalImg: {
     width: 200,
     height: 200,
     marginTop: vh(2),
-    alignSelf: "center"
+    alignSelf: "center",
+    zIndex: 3
   },
   textGeneral: {
     color: "black",

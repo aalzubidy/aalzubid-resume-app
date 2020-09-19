@@ -7,7 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from './HomeScreen';
 import Education from './Education';
-import testImage from './img/landscape-lowres.jpg';
+import hiImg from './img/hi.png';
+import educationImg from './img/education.png';
 
 const Stack = createStackNavigator();
 
@@ -16,42 +17,37 @@ const Drawer = createDrawerNavigator();
 const MyStack = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home" drawerType="front" edgeWidth={100} minSwipeDistance drawerStyle={styles.drawer}
-      drawerContentOptions={{
-        activeTintColor: 'black',
-        activeBackgroundColor: '#fbdbc6',
-        inactiveTintColor: 'black',
-        }}
-      >
+      <Drawer.Navigator
+        initialRouteName="Home"
+        drawerType="front"
+        edgeWidth={100}
+        minSwipeDistance
+        drawerStyle={styles.drawer}
+        drawerContentOptions={{
+          activeTintColor: 'black',
+          activeBackgroundColor: '#fbdbc6',
+          inactiveTintColor: 'black',
+        }}>
         <Drawer.Screen
           name="Home"
           component={HomeScreen}
           options={{
             title: 'Hey There!',
-            headerStyle: {
-              backgroundColor: '#f7ae80',
-              opacity: 1,
-            },
-            drawerIcon: ({ focused, size }) => (<Image source={testImage} style={[focused ? styles.drawerActive : styles.drawerInActive, { height: size, width: size }]}/>),
+            headerStyle: styles.screen,
+            drawerIcon: ({ focused, size }) => (<Image source={hiImg} style={[focused ? styles.drawerActive : styles.drawerInActive, { height: size, width: size }]} />),
             headerTintColor: 'black',
-            headerTitleStyle: {
-              // fontSize: 28
-              alignSelf: 'center'
-            }
+            headerTitleStyle: styles.screenTitle
           }}
         />
         <Drawer.Screen
           name="Education"
           component={Education}
           options={{
-            headerStyle: {
-              backgroundColor: '#f7ae80',
-              opacity: 1,
-            },
+            title: 'Education',
+            headerStyle: styles.screen,
+            drawerIcon: ({ focused, size }) => (<Image source={educationImg} style={[focused ? styles.drawerActive : styles.drawerInActive, { height: size, width: size }]} />),
             headerTintColor: 'black',
-            headerTitleStyle: {
-              alignSelf: 'center'
-            }
+            headerTitleStyle: styles.screenTitle
           }}
         />
       </Drawer.Navigator>
@@ -65,8 +61,16 @@ export default MyStack;
 const styles = StyleSheet.create({
   drawer: {
     backgroundColor: '#f7ae80',
-    // width: 240,
     flex: 1,
-    padding: 1,
+    padding: 1
+    // width: 240
   },
+  screen: {
+    backgroundColor: '#f7ae80',
+    opacity: 1
+  },
+  screenTitle: {
+    alignSelf: 'center'
+    // fontSize: 28
+  }
 });
